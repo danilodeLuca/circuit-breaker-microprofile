@@ -3,7 +3,6 @@
 
     <!-- Enable features -->
     <featureManager>
-<!--        <feature>restfulWS-3.1</feature>-->
         <feature>jakartaee-10.0</feature>
         <feature>microProfile-6.0</feature>
         <feature>mpFaultTolerance-4.0</feature>
