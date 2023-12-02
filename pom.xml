@@ -13,8 +13,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <liberty.var.default.http.port>9080</liberty.var.default.http.port>
-        <liberty.var.default.https.port>9443</liberty.var.default.https.port>
+        <liberty.var.default.http.port>8080</liberty.var.default.http.port>
+        <liberty.var.default.https.port>443</liberty.var.default.https.port>
         <liberty.var.app.context.root>circuit-breaker</liberty.var.app.context.root>
     </properties>
 
@@ -72,15 +72,6 @@
                     <groupId>io.openliberty.tools</groupId>
                     <artifactId>liberty-maven-plugin</artifactId>
                     <version>3.9</version>
-                    <executions>
-                        <execution>
-                            <id>install-liberty-runtime</id>
-                            <phase>validate</phase>
-                            <goals>
-                                <goal>install-server</goal>
-                            </goals>
-                        </execution>
-                    </executions>
                 </plugin>
                 <!-- Plugin to run functional tests -->
                 <plugin>
