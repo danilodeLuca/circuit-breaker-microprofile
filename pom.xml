@@ -72,6 +72,15 @@
                     <groupId>io.openliberty.tools</groupId>
                     <artifactId>liberty-maven-plugin</artifactId>
                     <version>3.9</version>
+                    <executions>
+                        <execution>
+                            <id>install-liberty-runtime</id>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>install-server</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
                 <!-- Plugin to run functional tests -->
                 <plugin>
