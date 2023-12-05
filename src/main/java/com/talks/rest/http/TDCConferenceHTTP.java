@@ -6,6 +6,8 @@ import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.faulttolerance.exceptions.CircuitBreakerOpenException;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 import static com.talks.rest.model.Conference.*;
 
 @ApplicationScoped
@@ -36,7 +38,10 @@ public class TDCConferenceHTTP {
      * The number of consecutive successful invocations of the service that are required before
      * the circuit is closed. The default is 1 request.
      */
-    @CircuitBreaker(requestVolumeThreshold = 10, failureRatio = 0.1, delay = 15000, successThreshold = 1)
+    @CircuitBreaker(requestVolumeThreshold = 25,
+            failureRatio = 0.1,
+            delay = 15000,
+            successThreshold = 7)
     @Fallback(fallbackMethod = "conferenceFallback",
             applyOn = {ConnectionException.class, CircuitBreakerOpenException.class})
     public String findTDCFuture() {
@@ -44,16 +49,19 @@ public class TDCConferenceHTTP {
         return "The Developers Conference " + TDC_FUTURE;
     }
 
-    @CircuitBreaker(requestVolumeThreshold = 50, failureRatio = 0.1, delay = 10000, successThreshold = 5)
+    @CircuitBreaker(requestVolumeThreshold = 50,
+            failureRatio = 0.1,
+            delay = 10000,
+            successThreshold = 5)
     public String findTDCBusiness() {
         httpHitCounter.evaluateRequest(TDC_BUSINESS);
         return "The Developers Conference " + TDC_BUSINESS;
     }
 
-    @CircuitBreaker(requestVolumeThreshold = 25,
+    @CircuitBreaker(requestVolumeThreshold = 20,
             failureRatio = 0.1,
-            delay = 5000,
-            successThreshold = 3,
+            delay = 15000,
+            successThreshold = 1,
             skipOn = ConnectionException.class)
     public String findTDCInnovation() {
         httpHitCounter.evaluateRequest(TDC_INNOVATION);
@@ -68,8 +76,15 @@ public class TDCConferenceHTTP {
         throw new ConnectionException("");
     }
 
+    public ConcurrentHashMap<String, Integer> reset() {
+        return httpHitCounter.reset();
+    }
+
     public String conferenceFallback() {
-        System.out.print("Fallback!");
         return "Fallback: Esquenta TDC ";
+    }
+
+    public ConcurrentHashMap<String, Integer> hits() {
+        return httpHitCounter.hits();
     }
 }

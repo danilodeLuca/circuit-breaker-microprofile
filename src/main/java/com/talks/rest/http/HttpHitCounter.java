@@ -22,7 +22,7 @@ public class HttpHitCounter {
         hits.put(Conference.TDC_INNOVATION, 0);
 
         httpHitCondition = new HashMap<>();
-        httpHitCondition.put(Conference.TDC_FUTURE, new Condition(10, 5, 0.9));
+        httpHitCondition.put(Conference.TDC_FUTURE, new Condition(20, 5, 0.9));
         httpHitCondition.put(Conference.TDC_BUSINESS, new Condition(50, 5, 0.7));
         httpHitCondition.put(Conference.TDC_INNOVATION, new Condition(25, 2, 0.5));
     }
@@ -39,14 +39,23 @@ public class HttpHitCounter {
         Condition condition = httpHitCondition.get(key);
         Integer totalHits = hits.get(key);
         if (!condition.applicable(totalHits)) {
-            Integer newHitLimit = decrementAndGet(key, condition.getDecrementCounter());
-            if(condition.shouldReset(newHitLimit))
+            decrementAndGet(key, condition.getDecrementCounter());
             throw new ConnectionException("It was not possible to reach server " + key + ", total Hits: " + totalHits);
         }
         incrementAndGet(key);
         return true;
     }
 
+    public ConcurrentHashMap<String, Integer> reset() {
+        hits.put(Conference.TDC_FUTURE, 0);
+        hits.put(Conference.TDC_BUSINESS, 0);
+        hits.put(Conference.TDC_INNOVATION, 0);
+        return hits;
+    }
 
+
+    public ConcurrentHashMap<String, Integer> hits() {
+        return hits;
+    }
 }
 
