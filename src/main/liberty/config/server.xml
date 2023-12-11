@@ -20,11 +20,6 @@
         </config>
     </microProfileConfig>
 
-<!--    <cors domain="/circuit-breaker/api/conferences/*"-->
-<!--          allowedOrigins="*"-->
-<!--          allowedMethods="*"-->
-<!--          allowCredentials="true"/>-->
-
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
     <httpEndpoint httpPort="${default.http.port}" httpsPort="${default.https.port}"
                   id="defaultHttpEndpoint" host="*" />
