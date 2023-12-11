@@ -1,5 +1,7 @@
-package com.talks.rest.http;
+package com.talks.rest.http.mock;
 
+import com.talks.rest.http.ConnectionException;
+import com.talks.rest.http.pojos.Condition;
 import com.talks.rest.model.Conference;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -7,6 +9,15 @@ import jakarta.enterprise.context.ApplicationScoped;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * This class simulates a possible behavorial for a external communication to a new service.
+ * @variables
+ *      - httpHitCondition: represents the "htttp request" and the conditions on how it should respond,
+ * simulating for example a rate limit that a endpoint can reach.
+ *      - hits: represents the hit count for each request.
+ *
+ *
+ */
 @ApplicationScoped
 public class HttpHitCounter {
 

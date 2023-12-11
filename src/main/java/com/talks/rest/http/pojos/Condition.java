@@ -1,4 +1,4 @@
-package com.talks.rest.http;
+package com.talks.rest.http.pojos;
 
 public record Condition(Integer hitWindow, Integer decrementCounter, Double requestLimitPercentage) {
 

@@ -1,5 +1,6 @@
 package com.talks.rest.http;
 
+import com.talks.rest.http.mock.HttpHitCounter;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
