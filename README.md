@@ -5,9 +5,11 @@ The main goal of this project is to simulate an operation of a circuit-breaker, 
 Also you will enjoy using OpenLiberty and JakartaEE for the rest application.
 
 ![img_3.png](docs/microprofile.png)
+
 https://github.com/eclipse/microprofile-fault-tolerance
 
 ![img_2.png](docs/openliberty.png)
+
 https://openliberty.io/docs/latest/overview.html
 
 ![img.png](docs/jakartaee.png)
