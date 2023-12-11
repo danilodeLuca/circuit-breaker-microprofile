@@ -43,7 +43,3 @@ docker tag circuit-breaker-app registry.heroku.com/{heroku-app}/web
 docker push registry.heroku.com/{heroku-app}/web
 heroku container:release web
 ```
-
-https://dashboard.heroku.com/apps/whispering-tundra-13699/resources
-
-https://whispering-tundra-13699-2ebc6440802a.herokuapp.com/circuit-breaker/api/conferences/a
