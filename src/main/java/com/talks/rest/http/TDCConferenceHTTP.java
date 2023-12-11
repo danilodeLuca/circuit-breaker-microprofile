@@ -71,7 +71,7 @@ public class TDCConferenceHTTP {
     @CircuitBreaker(requestVolumeThreshold = 10, failureRatio = 0.1, delay = 15000, successThreshold = 1)
     @Fallback(fallbackMethod = "conferenceFallback",
             applyOn = {ConnectionException.class, CircuitBreakerOpenException.class})
-    public String dumbExample() {
+    public String findEsquentaTDC() {
         System.out.print("Tryed to process!");
         throw new ConnectionException("");
     }

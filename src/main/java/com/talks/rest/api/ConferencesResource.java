@@ -1,7 +1,7 @@
 package com.talks.rest.api;
 
 import com.talks.rest.services.ConferenceService;
-import jakarta.ejb.EJB;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Path("conferences")
 public class ConferencesResource {
 
-    @EJB
+    @Inject
     private ConferenceService conferenceService;
 
     @GET

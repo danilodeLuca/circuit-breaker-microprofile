@@ -20,7 +20,7 @@ public class ConferenceService {
             case TDC_FUTURE -> details = tDCConferenceHTTP.findTDCFuture();
             case TDC_BUSINESS -> details = tDCConferenceHTTP.findTDCBusiness();
             case TDC_INNOVATION -> details = tDCConferenceHTTP.findTDCInnovation();
-            default -> details = tDCConferenceHTTP.dumbExample();
+            default -> details = tDCConferenceHTTP.findEsquentaTDC();
         }
         return details;
     }
