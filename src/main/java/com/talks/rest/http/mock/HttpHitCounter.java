@@ -31,11 +31,17 @@ public class HttpHitCounter {
         hits.put(Conference.TDC_FUTURE, 0);
         hits.put(Conference.TDC_BUSINESS, 0);
         hits.put(Conference.TDC_INNOVATION, 0);
+        hits.put(Conference.GEEKLE_JAVA, 0);
+        hits.put(Conference.GEEKLE_ARCHITECTURE, 0);
+        hits.put(Conference.GEEKLE_DEVOPS, 0);
 
         httpHitCondition = new HashMap<>();
         httpHitCondition.put(Conference.TDC_FUTURE, new Condition(20, 5, 0.9));
         httpHitCondition.put(Conference.TDC_BUSINESS, new Condition(50, 5, 0.7));
         httpHitCondition.put(Conference.TDC_INNOVATION, new Condition(25, 2, 0.5));
+        httpHitCondition.put(Conference.GEEKLE_JAVA, new Condition(10, 5, 0.9));
+        httpHitCondition.put(Conference.GEEKLE_ARCHITECTURE, new Condition(50, 5, 0.7));
+        httpHitCondition.put(Conference.GEEKLE_DEVOPS, new Condition(25, 2, 0.5));
     }
 
     public Integer incrementAndGet(String key) {
@@ -61,6 +67,9 @@ public class HttpHitCounter {
         hits.put(Conference.TDC_FUTURE, 0);
         hits.put(Conference.TDC_BUSINESS, 0);
         hits.put(Conference.TDC_INNOVATION, 0);
+        hits.put(Conference.GEEKLE_JAVA, 0);
+        hits.put(Conference.GEEKLE_ARCHITECTURE, 0);
+        hits.put(Conference.GEEKLE_DEVOPS, 0);
         return hits;
     }
 
